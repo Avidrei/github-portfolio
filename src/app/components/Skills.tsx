@@ -67,11 +67,11 @@ export default function SkillsSection() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   return (
-    <section className="flex flex-col bg-bsblack min-h-screen">
+    <section className="flex flex-col bg-bsblack py-10 min-h-screen">
     {/* Skills Text*/}
     <div className="flex flex-col items-center justify-center">
         <h2 className="text-6xl font-pix text-bswhite">Skills </h2>
-        <h3 className="mt-3 mb-5 text-xl font-mont text-bswhite">Get to know my strengths and capabilities</h3>
+        <h3 className="mt-3 mb-5 text-xl font-mont text-bswhite">Get to know my strengths and capabilities.</h3>
     </div>
     <div className="flex mx-10">
       {/* Left Nav */}
@@ -89,14 +89,14 @@ export default function SkillsSection() {
 
       {/* Right Content */}
       <div className="flex-1 py-6 px-7 overflow-y-auto">
-        <h2 className="text-5xl font-pix text-(--color-bswhite) font-medium mb-10">{selectedCategory}</h2>
+        <h2 className="text-5xl font-pix text-bswhite font-medium mb-10">{selectedCategory}</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {(skills[selectedCategory] ?? []).map((skill) => (
             <div
               key={skill.name}
-              className="flex items-center gap-3 p-3 border rounded bg-(--color-bswhite) border-(--color-bssilver) hover:bg-(--color-bsgold) hover:border-(--color-bsgold) transition-colors">
-              {skill.icon && <span className="text-(--color-bsblack text-2xl">{skill.icon}</span>}
-              <span className="p-3 font-mont text-(--color-bsblack) text-xl font-medium">{skill.name}</span>
+              className="flex items-center gap-3 py-2 px-5 border rounded bg-bswhite border-bssilver text-bsgold text-shadow-bsblack hover:text-bsblack hover:bg-bsgold hover:border-bsgold transition-colors">
+              {skill.icon && <span className="text-2xl">{skill.icon}</span>}
+              <span className="py-3 font-mont text-md font-medium">{skill.name}</span>
             </div>
           ))}
         </div>

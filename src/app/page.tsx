@@ -4,22 +4,26 @@ import Skills from "./components/Skills";
 import About from "./components/About";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
-
+import Reveal from "./components/Reveal";
 
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Section : Hero Banner*/}
-      <Hero />
+      <Reveal><Hero /></Reveal>
+      
+      <div className="bg-bsblack">
       {/* Section : About Me */}
-      <About />
+      <Reveal><About /></Reveal>
 
       {/* Section : Skills / Tech Stack */}
-      <Skills />
+      <Reveal><Skills /></Reveal>
+      </div>
       
       {/* Section : Projects */}
-      <Projects />
+      <Reveal><Projects /></Reveal>
+
       {/* Section : Skills */}
     </main>
   );

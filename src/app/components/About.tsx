@@ -22,7 +22,7 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-15">
+            <div className="flex justify-center mt-5 mb-25">
                 <div className="w-4/5 h-1 bg-bswhite"></div>
             </div>
         </section>
