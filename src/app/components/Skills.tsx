@@ -3,16 +3,17 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { TbBrandCSharp, TbBrandNextjs } from "react-icons/tb";
-import { FaPython, FaJsSquare, FaReact, FaNodeJs, FaJava, FaGit, FaDocker } from "react-icons/fa";
+import { FaPython, FaJsSquare, FaReact, FaNodeJs, FaJava, FaGit, FaDocker, FaFigma } from "react-icons/fa";
 import { SiNumpy, SiScikitlearn, SiTensorflow, SiPytorch, SiTailwindcss, SiCplusplus, 
-       SiPandas, SiKeras, SiTableau, SiJupyter} from "react-icons/si";
+       SiPandas, SiKeras, SiTableau, SiJupyter, SiAdobephotoshop, SiAdobeillustrator, SiCanva, SiRenpy, 
+       SiUnrealengine, SiUnity, SiMongodb, SiCss3, SiHtml5 } from "react-icons/si";
 import { BsFiletypeSql } from "react-icons/bs";
 import { VscVscode } from "react-icons/vsc";
 
 type Skill = { name: string; icon: ReactNode };
 
 export default function SkillsSection() {
-  const categories = ["Languages", "Frameworks & Libraries", "Data Science & ML", "Tools & Platforms"];
+  const categories = ["Languages", "Frameworks & Libraries", "Data Science & ML", "Tools & Platforms", "Soft Skills"];
 
   const skills: Record<string, Skill[]> = {
     Languages: [
@@ -22,6 +23,8 @@ export default function SkillsSection() {
       { name: "Java", icon: <FaJava/> },
       { name: "C++", icon: <SiCplusplus /> },
       { name: "C#", icon: <TbBrandCSharp /> },
+      { name: "HTML", icon: <SiHtml5 /> },
+      { name: "CSS", icon: <SiCss3 /> },
     ],
     "Frameworks & Libraries": [
       { name: "React", icon: <FaReact /> },
@@ -36,6 +39,7 @@ export default function SkillsSection() {
       { name: "PyTorch", icon: <SiPytorch /> },
       { name: "Pandas", icon: <SiPandas /> },
       { name: "Keras", icon: <SiKeras /> },
+      { name: "MongoDB", icon: <SiMongodb /> },
     ],
     "Tools & Platforms": [
       { name: "Git & GitHub", icon: <FaGit /> },
@@ -43,28 +47,42 @@ export default function SkillsSection() {
       { name: "VS Code", icon: <VscVscode /> },
       { name: "Jupyter Notebooks", icon: <SiJupyter /> },
       { name: "Tableau", icon: <SiTableau /> },
+      { name: "Adobe Photoshop", icon: <SiAdobephotoshop /> },
+      { name: "Adobe Illustrator", icon: <SiAdobeillustrator /> },
+      { name: "Figma", icon: <FaFigma /> },
+      { name: "Canva", icon: <SiCanva /> },
+      { name: "Renpy", icon: <SiRenpy /> },
+      { name: "Unreal Engine", icon: <SiUnrealengine /> },
+      { name: "Unity", icon: <SiUnity /> }
     ],
+    "Soft Skills": [
+      { name: "Communication", icon: <></> },
+      { name: "Teamwork", icon: <></> },
+      { name: "Problem Solving", icon: <></> },
+      { name: "Adaptability", icon: <></> },
+      { name: "Leadership", icon: <></> }
+    ]
   };
 
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   return (
-    <section className="flex flex-col bg-(--color-bsblack) min-h-screen">
+    <section className="flex flex-col bg-bsblack min-h-screen">
     {/* Skills Text*/}
     <div className="flex flex-col items-center justify-center">
-        <h2 className="text-6xl font-pix text-(--color-bswhite)">Skills </h2>
-        <h3 className="mt-3 mb-5 text-xl font-mont text-(--color-bswhite)">Get to know my strengths and capabilities</h3>
+        <h2 className="text-6xl font-pix text-bswhite">Skills </h2>
+        <h3 className="mt-3 mb-5 text-xl font-mont text-bswhite">Get to know my strengths and capabilities</h3>
     </div>
-    <div className="flex">
+    <div className="flex mx-10">
       {/* Left Nav */}
-      <nav className="w-1/4 border-r-3 border-(--color-bssilver) p-5 flex flex-col space-y-4 sticky top-0 h-8/12">
+      <nav className="w-1/4 border-r-3 border-bssilver p-5 flex flex-col space-y-4 sticky top-0 h-8/12">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`text-left font-mont text-lg text-(--color-bswhite) px-4 py-4 rounded hover:bg-(--color-bsgold) hover:text-(--color-bswhite) transition-colors ${
-              selectedCategory === cat ? "bg-(--color-bsgold) text-(--color-bs)" : ""}`}>
-            {cat}
+            className={`text-left font-mont text-lg font-medium text-(--color-bswhite) px-4 py-4 rounded 
+              hover:bg-(--color-bsgold) hover:text-bsblack transition-colors 
+              ${selectedCategory === cat ? "bg-bsgold text-bsblack" : ""}`}> {cat}
           </button>
         ))}
       </nav>
@@ -78,7 +96,7 @@ export default function SkillsSection() {
               key={skill.name}
               className="flex items-center gap-3 p-3 border rounded bg-(--color-bswhite) border-(--color-bssilver) hover:bg-(--color-bsgold) hover:border-(--color-bsgold) transition-colors">
               {skill.icon && <span className="text-(--color-bsblack text-2xl">{skill.icon}</span>}
-              <span className="font-mont text-(--color-bsblack) text-lg font-medium">{skill.name}</span>
+              <span className="p-3 font-mont text-(--color-bsblack) text-xl font-medium">{skill.name}</span>
             </div>
           ))}
         </div>

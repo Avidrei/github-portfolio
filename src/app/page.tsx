@@ -3,6 +3,7 @@
 import Skills from "./components/Skills";
 import About from "./components/About";
 import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 
 
 
@@ -13,12 +14,12 @@ export default function Home() {
       <Hero />
       {/* Section : About Me */}
       <About />
+
       {/* Section : Skills / Tech Stack */}
       <Skills />
       
-
       {/* Section : Projects */}
-
+      <Projects />
       {/* Section : Skills */}
     </main>
   );
