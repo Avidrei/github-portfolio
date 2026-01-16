@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import { TbBrandCSharp } from "react-icons/tb";
+import { TbBrandCSharp, TbBrandNextjs } from "react-icons/tb";
 import { FaPython, FaJsSquare, FaReact, FaNodeJs, FaJava, FaGit, FaDocker } from "react-icons/fa";
 import { SiNumpy, SiScikitlearn, SiTensorflow, SiPytorch, SiTailwindcss, SiCplusplus, 
        SiPandas, SiKeras, SiTableau, SiJupyter} from "react-icons/si";
@@ -25,7 +25,7 @@ export default function SkillsSection() {
     ],
     "Frameworks & Libraries": [
       { name: "React", icon: <FaReact /> },
-      { name: "Next.js", icon: <FaReact /> },
+      { name: "Next.js", icon: <TbBrandNextjs /> },
       { name: "Node.js", icon: <FaNodeJs /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss /> },
     ],
@@ -49,10 +49,13 @@ export default function SkillsSection() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   return (
-    <section className="flex bg-(--color-bsblack) min-h-screen">
-    <div>
-        
+    <section className="flex flex-col bg-(--color-bsblack) min-h-screen">
+    {/* Skills Text*/}
+    <div className="flex flex-col items-center justify-center">
+        <h2 className="text-6xl font-pix text-(--color-bswhite)">Skills </h2>
+        <h3 className="mt-3 mb-5 text-xl font-mont text-(--color-bswhite)">Get to know my strengths and capabilities</h3>
     </div>
+    <div className="flex">
       {/* Left Nav */}
       <nav className="w-1/4 border-r-3 border-(--color-bssilver) p-5 flex flex-col space-y-4 sticky top-0 h-8/12">
         {categories.map((cat) => (
@@ -80,6 +83,7 @@ export default function SkillsSection() {
           ))}
         </div>
       </div>
+    </div>
     </section>
   );
 }
