@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { ReactNode } from "react";
 import { TbBrandCSharp, TbBrandNextjs } from "react-icons/tb";
 import { FaPython, FaJsSquare, FaReact, FaNodeJs, FaJava, FaGit, FaDocker, FaFigma } from "react-icons/fa";
@@ -10,13 +9,11 @@ import { SiNumpy, SiScikitlearn, SiTensorflow, SiPytorch, SiTailwindcss, SiCplus
 import { BsFiletypeSql } from "react-icons/bs";
 import { VscVscode } from "react-icons/vsc";
 
-type Skill = { name: string; icon: ReactNode };
+type Skill = { name: string; icon?: ReactNode };
 
 export default function SkillsSection() {
-  const categories = ["Languages", "Frameworks & Libraries", "Data Science & ML", "Tools & Platforms", "Soft Skills"];
-
-  const skills: Record<string, Skill[]> = {
-    Languages: [
+  const skillsData: Record<string, Skill[]> = {
+    "Languages": [
       { name: "Python", icon: <FaPython /> },
       { name: "JavaScript", icon: <FaJsSquare /> },
       { name: "SQL", icon: <BsFiletypeSql /> },
@@ -45,63 +42,69 @@ export default function SkillsSection() {
       { name: "Git & GitHub", icon: <FaGit /> },
       { name: "Docker", icon: <FaDocker /> },
       { name: "VS Code", icon: <VscVscode /> },
-      { name: "Jupyter Notebooks", icon: <SiJupyter /> },
+      { name: "Jupyter", icon: <SiJupyter /> },
       { name: "Tableau", icon: <SiTableau /> },
-      { name: "Adobe Photoshop", icon: <SiAdobephotoshop /> },
-      { name: "Adobe Illustrator", icon: <SiAdobeillustrator /> },
+      { name: "Photoshop", icon: <SiAdobephotoshop /> },
+      { name: "Illustrator", icon: <SiAdobeillustrator /> },
       { name: "Figma", icon: <FaFigma /> },
-      { name: "Canva", icon: <SiCanva /> },
-      { name: "Renpy", icon: <SiRenpy /> },
       { name: "Unreal Engine", icon: <SiUnrealengine /> },
       { name: "Unity", icon: <SiUnity /> }
     ],
-    "Soft Skills": [
-      { name: "Communication", icon: <></> },
-      { name: "Teamwork", icon: <></> },
-      { name: "Problem Solving", icon: <></> },
-      { name: "Adaptability", icon: <></> },
-      { name: "Leadership", icon: <></> }
+    "Core Competencies": [
+      { name: "Technical Communication" },
+      { name: "Cross-functional Teamwork" },
+      { name: "Analytical Problem Solving" },
+      { name: "Agile Adaptability" },
     ]
   };
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-
   return (
-    <section className="flex flex-col bg-bsblack py-10 min-h-screen">
-    {/* Skills Text*/}
-    <div className="flex flex-col items-center justify-center">
-        <h2 className="text-6xl font-pix text-bswhite">Skills </h2>
-        <h3 className="mt-3 mb-5 text-xl font-mont text-bswhite">Get to know my strengths and capabilities.</h3>
-    </div>
-    <div className="flex mx-10">
-      {/* Left Nav */}
-      <nav className="w-1/4 border-r-3 border-bssilver p-5 flex flex-col space-y-4 sticky top-0 h-8/12">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`text-left font-mont text-lg font-medium text-(--color-bswhite) px-4 py-4 rounded 
-              hover:bg-(--color-bsgold) hover:text-bsblack transition-colors 
-              ${selectedCategory === cat ? "bg-bsgold text-bsblack" : ""}`}> {cat}
-          </button>
-        ))}
-      </nav>
-
-      {/* Right Content */}
-      <div className="flex-1 py-6 px-7 overflow-y-auto">
-        <h2 className="text-5xl font-pix text-bswhite font-medium mb-10">{selectedCategory}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {(skills[selectedCategory] ?? []).map((skill) => (
-            <div
-              key={skill.name}
-              className="flex items-center gap-3 py-2 px-5 border rounded bg-bswhite border-bssilver text-bsgold text-shadow-bsblack hover:text-bsblack hover:bg-bsgold hover:border-bsgold transition-colors">
-              {skill.icon && <span className="text-2xl">{skill.icon}</span>}
-              <span className="py-3 font-mont text-md font-medium">{skill.name}</span>
-            </div>
-          ))}
-        </div>
+    <section className="bg-bsblack text-bswhite min-h-screen py-24 px-6 md:px-16 lg:px-24">
+      {/* Title Header */}
+      <div className="max-w-6xl w-full mx-auto mb-16 border-b border-neutral-900 pb-8">
+        <h2 className="text-4xl md:text-5xl font-pix font-medium tracking-tight mb-3">
+          Skills & Expertise
+        </h2>
+        <p className="font-mont text-sm md:text-base text-neutral-400">
+          A breakdown of my technical toolkit and areas of specialization.
+        </p>
       </div>
-    </div>
+
+      {/* Grid Architecture */}
+      <div className="max-w-6xl w-full mx-auto space-y-16">
+        {Object.entries(skillsData).map(([category, items]) => (
+          <div 
+            key={category} 
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start border-b border-neutral-900 pb-12 last:border-0"
+          >
+            {/* Left: Category Label */}
+            <div className="lg:col-span-3">
+              <h3 className="font-pix text-lg text-neutral-400 font-medium tracking-wide lg:sticky lg:top-8">
+                {category}
+              </h3>
+            </div>
+
+            {/* Right: Skills Badges */}
+            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {items.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="flex items-center gap-3 py-3 px-4 rounded-md border border-neutral-800 bg-neutral-950/40 text-neutral-300 hover:text-bswhite hover:border-neutral-600 transition-all duration-200 group"
+                >
+                  {skill.icon && (
+                    <span className="text-xl text-neutral-500 group-hover:text-bsgold transition-colors duration-200">
+                      {skill.icon}
+                    </span>
+                  )}
+                  <span className="font-mont text-sm font-medium tracking-wide">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

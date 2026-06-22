@@ -1,29 +1,53 @@
 export default function About() {
     return (
-        <section className="flex flex-col bg-bsblack min-h-screen">
-            <div className="flex flex-col ml-19 mt-15">
-            <h2 className="text-6xl text-bswhite font-pix font-medium">About Me</h2>
+        <section className="bg-bsblack text-bswhite min-h-screen flex flex-col justify-center px-6 py-20 md:px-16 lg:px-24">
+            {/* Header Section */}
+            <div className="max-w-6xl w-full mx-auto mb-12">
+                <h2 className="text-4xl md:text-5xl font-pix font-medium tracking-tight">
+                    About Me
+                </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 mb-20">
-                <div className="mt-10 mx-15 max-w-2xl px-4 text-bswhite font-mont font-normal text-justify text-lg leading-8">
+            {/* Content Section */}
+            <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                
+                {/* Left Side: Bio Narrative */}
+                <div className="lg:col-span-7 font-mont font-normal text-base md:text-lg text-neutral-300 leading-relaxed space-y-6 text-left">
                     <p>
-                    I&apos;m currently pursuing a degree in Computer Science majoring in Data Science at University of Santo Tomas 
-                    with a strong academic track record, including multiple Dean&apos;s List recognitions and topnotchers.
-                    I have worked extensively with libraries and frameworks involving Python, JavaScript, and SQL, and love creating projects that combine software 
-                    development and data analysis. In my previous roles, I have experienced building web applications, automating
-                    data pipelines, generating business insights, and developed machine learning models to solve real-world problems.
+                        I am currently pursuing a degree in Computer Science majoring in Data Science at the University of Santo Tomas. 
+                        With a strong academic foundation—consistently earning Dean's List honors—I focus on the intersection of 
+                        software development and data architecture. 
                     </p>
-
-                    <p className="mt-6">
-                    When I&apos;m not coding, I code games using engines such as Unity or Unreal, or languages like Java. In my free time, I also enjoy playing video games, 
-                    reading manga, and exploring new technologies and frameworks to stay updated in the ever-evolving field of tech. 
+                    <p>
+                        My experience spans building scalable web applications, automating data pipelines, and developing 
+                        machine learning models to extract actionable business insights. I enjoy turning complex data challenges into 
+                        clean, functional code.
+                    </p>
+                    <p className="text-sm md:text-base text-neutral-400">
+                        Outside of data and core development, I build games in Unity and Unreal Engine, explore 
+                        emerging tech frameworks, and keep up with game design trends.
                     </p>
                 </div>
-            </div>
 
-            <div className="flex justify-center mt-5 mb-25">
-                <div className="w-4/5 h-1 bg-bswhite"></div>
+                {/* Right Side: Professional Quick-Facts (Fills the grid gap professionally) */}
+                <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-neutral-800 pt-8 lg:pt-0 lg:pl-12 font-mont">
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">Core Stack</h3>
+                            <p className="text-sm text-neutral-300 leading-6">Python, JavaScript, SQL, Java, React, Next.js</p>
+                        </div>
+                        <div>
+                            <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">Specializations</h3>
+                            <p className="text-sm text-neutral-300 leading-6">Data Analysis, Machine Learning Pipelines, Full-Stack Dev</p>
+                        </div>
+                        <div>
+                            <h3 className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">Education</h3>
+                            <p className="text-sm text-neutral-300">B.S. Computer Science — Data Science</p>
+                            <p className="text-xs text-neutral-500 mt-0.5">University of Santo Tomas</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     )
